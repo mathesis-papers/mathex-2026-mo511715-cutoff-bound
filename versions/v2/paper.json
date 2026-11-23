@@ -1,0 +1,66 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 91403,
+      "matches_public": true,
+      "path": "paper.pdf",
+      "public_sha256": "f1cd52b832c5cb65b6cf53efafadabee3ada3320258e15e860c74b95f7e38968",
+      "sha256": "f1cd52b832c5cb65b6cf53efafadabee3ada3320258e15e860c74b95f7e38968"
+    },
+    "source": {
+      "bytes": 13965,
+      "matches_public": true,
+      "path": "source.archive",
+      "public_sha256": "fd8e3673795e323b9c4ad07b08c49b820b376d3e6869dc189f270badc9a95a69",
+      "sha256": "fd8e3673795e323b9c4ad07b08c49b820b376d3e6869dc189f270badc9a95a69"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "For mathex's question Bound of series, MathOverflow 511715, revision 2 (26 May 2026), final displayed inequality, we give a negative answer to the requested uniform cutoff estimate in the Euclidean interpretation, complementing Ghafari's bound for a related Littlewood-Paley-mask series (2026, Appendix H, Lemma H.0.1): one admissible mask isolates a nonzero output, and disjoint lattice blocks force logarithmic divergence as the cutoff scale tends to zero. For each nonzero output, the same symmetric mask works at every positive time and for every fixed real or complex compactly supported cutoff continuous at zero and equal to one there. No finite constant and fixed real exponent can satisfy the proposed estimate even on any bounded interval of positive scales reaching zero. For smooth cutoffs, a corrected Lipschitz estimate holds uniformly in the mask and output when time is bounded and the cutoff scales stay away from zero; zero modes show that the time restriction cannot simply be dropped.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": null,
+    "current_version": 2,
+    "doi": null,
+    "lean_source": {
+      "revision": "1ad50310295853e27713693f182e8eac94296739",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/1ad50310295853e27713693f182e8eac94296739/D5/S3/Fourier/MO511715Source.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "bytes": 91403,
+      "sha256": "f1cd52b832c5cb65b6cf53efafadabee3ada3320258e15e860c74b95f7e38968",
+      "url": "/api/v1/collected-papers/mathex-2026-mo511715-cutoff-bound/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-23T17:47:18.565366551Z",
+    "record": "mathex-2026-mo511715-cutoff-bound",
+    "repository_name": "mathex-2026-mo511715-cutoff-bound",
+    "source": {
+      "bytes": 13965,
+      "sha256": "fd8e3673795e323b9c4ad07b08c49b820b376d3e6869dc189f270badc9a95a69",
+      "url": "/api/v1/collected-papers/mathex-2026-mo511715-cutoff-bound/files/source?version=2"
+    },
+    "title": "A negative answer to mathex's cutoff-series question beyond Ghafari's masks",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-23T17:47:18.565366551Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "mathex-2026-mo511715-cutoff-bound"
+  }
+}

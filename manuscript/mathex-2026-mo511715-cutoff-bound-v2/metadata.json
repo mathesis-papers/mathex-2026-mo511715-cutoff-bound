@@ -1,0 +1,15 @@
+{
+  "id": "mathex-2026-mo511715-cutoff-bound",
+  "revision": 2,
+  "problem_ids": ["mathex-2026-mo511715-cutoff-bound"],
+  "topic": "The cutoff-scale estimate in mathex's five-dimensional series question",
+  "title": "A negative answer to mathex's cutoff-series question beyond Ghafari's masks",
+  "creators": [
+    {"name": "Haobo Ma", "affiliation": "ChronoAI Pte Ltd, Singapore"},
+    {"name": "Wenlin Zhang", "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"}
+  ],
+  "abstract": "For mathex's question Bound of series, MathOverflow 511715, revision 2 (26 May 2026), final displayed inequality, we give a negative answer to the requested uniform cutoff estimate in the Euclidean interpretation, complementing Ghafari's bound for a related Littlewood-Paley-mask series (2026, Appendix H, Lemma H.0.1): one admissible mask isolates a nonzero output, and disjoint lattice blocks force logarithmic divergence as the cutoff scale tends to zero. For each nonzero output, the same symmetric mask works at every positive time and for every fixed real or complex compactly supported cutoff continuous at zero and equal to one there. No finite constant and fixed real exponent can satisfy the proposed estimate even on any bounded interval of positive scales reaching zero. For smooth cutoffs, a corrected Lipschitz estimate holds uniformly in the mask and output when time is bounded and the cutoff scales stay away from zero; zero modes show that the time restriction cannot simply be dropped.",
+  "summary": "Theorem 1 gives an explicit logarithmic obstruction at every positive time and nonzero output. Corollary 3 excludes every finite real constant/exponent pair on each interval (0,E], including symmetric masks. Corollary 4 shows that these masks have no interpolation with the scale-decaying frequency derivative used by Ghafari, whose structured-mask output bound is cited separately. Proposition 5 proves a bounded-time, positive-lower-scale Lipschitz correction, and Corollary 6 gives a linear-in-time zero-mode obstruction at two fixed scales. The pinned Lean declarations address finite support and time-one, first-unit-output block and dyadic statements; the extensions and correction have written proofs. The checker covers finite integer/rational instances.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/1ad50310295853e27713693f182e8eac94296739/D5/S3/Fourier/MO511715Source.lean"
+}

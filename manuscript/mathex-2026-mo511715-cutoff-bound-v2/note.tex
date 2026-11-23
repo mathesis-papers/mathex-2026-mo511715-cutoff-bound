@@ -1,0 +1,425 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[T1]{fontenc}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\ind}{\mathbf 1}
+\newcommand{\leanfile}{\href{https://github.com/the-omega-institute/trureturing/blob/1ad50310295853e27713693f182e8eac94296739/D5/S3/Fourier/MO511715Source.lean}{\texttt{MO511715Source.lean}}}
+\title{A negative answer to mathex's cutoff-series question beyond Ghafari's masks}
+\author{Haobo Ma\\\small ChronoAI Pte Ltd, Singapore
+\and Wenlin Zhang\\\small National University of Singapore\\\small ChronoAI Pte Ltd, Singapore}
+\date{19 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For mathex's question \emph{Bound of series}, MathOverflow 511715,
+revision 2 (26 May 2026), final displayed inequality, we give a negative answer to the requested
+uniform cutoff estimate in the Euclidean interpretation, complementing
+Ghafari's bound for a related Littlewood--Paley-mask series
+(2026, Appendix H, Lemma H.0.1): one admissible
+mask isolates a nonzero output, and disjoint lattice blocks force
+logarithmic divergence as the cutoff scale tends to zero.
+For each nonzero output, the same symmetric mask works at every positive
+time and for every fixed real or complex compactly supported cutoff
+continuous at zero and equal to one there. No finite constant and fixed real
+exponent can satisfy the proposed estimate even on any bounded interval
+of positive scales reaching zero.
+For smooth cutoffs, a corrected Lipschitz estimate holds uniformly in the
+mask and output when time is bounded and the cutoff scales stay away from zero;
+zero modes show that the time restriction cannot simply be dropped.
+\end{abstract}
+
+\section{The question and its precise interpretation}
+
+Mathex's question~\cite{mathex} asks ``How to establish'' a uniform
+H\"older estimate after subtracting the zero-output value of a
+five-dimensional cutoff series.
+The support condition on the mask allows it to isolate a single nonzero
+output, so that subtraction need not cancel anything. We retain the full
+time integral and all lattice modes and show that this freedom causes
+divergence even at fixed positive time.
+
+The closest positive result concerns a prescribed Littlewood--Paley mask.
+Ghafari~\cite{ghafari}, Appendix H, defines this mask on printed p.~93
+and the same series on p.~108 (with renamed summation indices).
+Lemma H.0.1, pp.~108--111, bounds its output difference, uniformly in
+$\epsilon>0$ and bounded time, by
+$(1+|n|^4)^{\gamma/2}$ for every $\gamma>0$; the proof yields
+$1+\log(2+|n|)$. It uses a smooth frequency extension with
+$|\nabla_p\psi(p,s)|\lesssim(1+|s|)^{-1}$ on comparable frequencies
+(p.~109). This is a bound on the output difference at one scale, not
+the cutoff-increment estimate uniform in $n$ asked here.
+The one-way support condition alone supplies neither that derivative
+control nor its cancellation. Corollary~\ref{cor:regularity} makes
+this distinction explicit, so the obstruction does not contradict
+Ghafari's result.
+
+All vector norms below are Euclidean. Let $F=\R$ or $\C$; scalar
+absolute values mean absolute value or complex modulus. Fix
+$\zeta:\R^5\to F$, compactly supported with $\zeta(0)=1$.
+The negative result requires continuity only at zero; smoothness is
+needed for the corrected estimate in Section~\ref{sec:correction}.
+Write $D=2\pi$. A mask is a function
+$\psi:(\Z^5)^2\to[0,1]$ satisfying
+\begin{equation}\label{eq:mask}
+ \psi(k,l)\ne0\quad\Longrightarrow\quad
+ \frac9{64}|k|\le |l|\le\frac{64}9|k|.
+\end{equation}
+For $q\ge0$ and $L,A,B\ge0$, define
+\begin{align}
+ I(q;L,A,B)&=\int_0^q e^{-L(q-\alpha)}
+ \int_0^\alpha\int_0^\alpha
+ e^{-A(q+\alpha-2v_1)-B(q+\alpha-2v_2)}\,dv_2\,dv_1\,d\alpha,
+ \label{eq:integral}\\
+ K_\psi(q,n,m_1,m_2)&=D^2|n-m_1|^2\psi(n-m_1,m_1)
+ \notag\\[-4pt]
+ &\hspace{12mm}\cdot I\bigl(q;D^4|n-m_1|^4,D^4|m_1-m_2|^4,D^4|m_2|^4\bigr).
+ \label{eq:kernel}
+\end{align}
+The iterated inner integral is the integral over the full square
+$[0,\alpha]^2$ with product Lebesgue measure. For $\epsilon>0$, put
+\begin{align}
+ \phi_\epsilon(q,n)&=\sum_{m_1,m_2\in\Z^5}
+ K_\psi(q,n,m_1,m_2)
+ |\zeta(\epsilon(m_1-m_2))|^2|\zeta(\epsilon m_2)|^2,
+ \label{eq:phi}\\
+ \Delta_\epsilon(r,u)&=\phi_\epsilon(r,u)-\phi_\epsilon(r,0).
+ \label{eq:delta}
+\end{align}
+Every sum in~\eqref{eq:phi} has finite support: choose $R>0$ with
+$\zeta(x)=0$ for $|x|>R$. A nonzero summand forces both
+$|m_1-m_2|\le R/\epsilon$ and $|m_2|\le R/\epsilon$.
+The corresponding integer vectors form finite sets; the map
+$(a,b)\mapsto(m_1,m_2)=(a+b,b)$ is a bijection.
+
+The proposed estimate is
+\begin{equation}\label{eq:asked}
+ |\Delta_{\epsilon_2}(r,u)-\Delta_{\epsilon_1}(r,u)|
+ \le C|\epsilon_2-\epsilon_1|^\delta,
+\end{equation}
+uniformly in $r,u,\epsilon_1,\epsilon_2,\psi$. We allow the constants
+to depend on the individually fixed cutoff. The question does not specify
+the vector norm or scalar field, or the signs of $C,\delta$.
+The conventional reading uses $C\ge0$, $\delta>0$, and $r\ge0$;
+our negative result covers all finite real $C,\delta$ under the
+Euclidean real and complex readings stated above.
+
+\section{A fixed-output obstruction}
+
+For each $v\in\Z^5\setminus\{0\}$ choose the single mask
+\begin{equation}\label{eq:selected}
+ \psi_v(k,l)=\ind_{\{k+l=v\}}
+ \ind_{\{(9/64)|k|\le |l|\le(64/9)|k|\}}.
+\end{equation}
+This mask satisfies~\eqref{eq:mask} and is independent of the cutoff,
+time, and scale. At $(n-m_1,m_1)$ its first indicator forces $n=v$.
+Consequently, for this mask,
+\begin{equation}\label{eq:isolates}
+ \phi_\epsilon(q,n)=0\quad(n\ne v),\qquad
+ \Delta_\epsilon(q,v)=\phi_\epsilon(q,v).
+\end{equation}
+Define the positive constants
+\begin{equation}\label{eq:constants}
+ \eta=\frac1{20000D^4},\qquad
+ \kappa=D^2e^{-1}\eta^3,\qquad c=\frac\kappa{16}.
+\end{equation}
+
+\begin{theorem}\label{thm:main}
+For every compactly supported $\zeta:\R^5\to F$ continuous at zero
+with $\zeta(0)=1$, there is $\rho\in(0,1]$ with the following property.
+Fix any $q>0$ and $v\in\Z^5\setminus\{0\}$, and choose a nonnegative
+integer $j_0$ such that
+\[
+ 2^{j_0}\ge\max\{1,|v|\},\qquad \eta\,2^{-4j_0}\le q/2.
+\]
+For the mask $\psi_v$ and every $0<\epsilon\le\rho/(5\cdot2^{j_0})$,
+\begin{equation}\label{eq:loggrowth}
+ \Delta_\epsilon(q,v)\ge
+ c\left(1+\left\lfloor\log_2\frac{\rho}{5\epsilon}\right\rfloor-j_0\right).
+\end{equation}
+In particular $\Delta_\epsilon(q,v)\to+\infty$ as $\epsilon\downarrow0$.
+For $q=1$ and $v=e=(1,0,0,0,0)$ one may take $j_0=0$.
+\end{theorem}
+
+\begin{lemma}\label{lem:time}
+If $q>0$, $0<h\le q/2$, and $(L+3A+3B)h\le1$, then
+$I(q;L,A,B)\ge e^{-1}h^3$.
+\end{lemma}
+\begin{proof}
+Restrict the integral to $q-h\le\alpha\le q$ and
+$\alpha-h\le v_1,v_2\le\alpha$. Since $h\le q/2$, this region lies
+in the original integration domain. On it,
+$0\le q-\alpha\le h$ and $0\le q+\alpha-2v_i\le3h$.
+The full integrand is at least $e^{-1}$ and the region has volume
+$h^3$. Nonnegativity permits the restriction.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+For each integer $N\ge\max\{1,|v|\}$, let
+$B_N=[N,2N)^5\cap\Z^5$. It has $N^5$ elements. Given
+$a,b\in B_N$, put $m=a+b$ and $k=v-m$.
+Coordinatewise bounds and the triangle inequality give
+\[
+ |a|,|b|\le\sqrt{20}N\le5N,\qquad
+ 4N\le|m|\le\sqrt{80}N\le9N,\qquad
+ 3N\le4N-|v|\le|k|\le9N+|v|\le10N.
+\]
+In particular
+$(9/64)|k|\le(90/64)N<4N\le|m|$, whereas
+$|m|\le9N<(64/9)3N\le(64/9)|k|$.
+Thus $\psi_v(k,m)=1$ throughout this block.
+
+For $N\ge2^{j_0}$ take $h=\eta/N^4$. Then $0<h\le q/2$, and for the three rates
+$L=D^4|k|^4$, $A=D^4|a|^4$, $B=D^4|b|^4$,
+\[
+ (L+3A+3B)h
+ \le\frac{10^4+6\cdot5^4}{20000}=\frac{11}{16}<1.
+\]
+Lemma~\ref{lem:time}, the actual squared-frequency prefactor,
+and $|k|\ge N$ therefore imply
+\begin{equation}\label{eq:blockkernel}
+ K_{\psi_v}(q,v,a+b,b)
+ \ge D^2N^2 e^{-1}\frac{\eta^3}{N^{12}}
+ =\frac\kappa{N^{10}}.
+\end{equation}
+
+Continuity at zero supplies $0<\rho\le1$ such that
+$|\zeta(x)|\ge1/2$ whenever $|x|\le\rho$.
+For $0<\epsilon\le\rho/(5\cdot2^{j_0})$, set
+$J=\lfloor\log_2(\rho/(5\epsilon))\rfloor\ge j_0$.
+For every $j_0\le j\le J$ and $a,b\in B_{2^j}$,
+$|\epsilon a|,|\epsilon b|\le5\epsilon2^j\le\rho$.
+The product of the two squared cutoff factors is at least $1/16$.
+There are $2^{10j}$ ordered pairs in this block, so
+\eqref{eq:blockkernel} gives mass at least $\kappa/16=c$.
+
+The boxes $B_{2^j}$ are pairwise disjoint: their first-coordinate
+intervals are disjoint half-open dyadic intervals. Hence their pair
+blocks are disjoint, and the bijection $(a,b)\mapsto(a+b,b)$ preserves
+disjointness. All other summands are nonnegative. Summing these $J-j_0+1$
+blocks and using~\eqref{eq:isolates} proves~\eqref{eq:loggrowth}.
+In particular, at $\epsilon_J=\rho/(5\cdot2^J)$,
+\begin{equation}\label{eq:dyadic}
+ \Delta_{\epsilon_J}(q,v)\ge c(J-j_0+1)\qquad(J\ge j_0).
+\end{equation}
+\end{proof}
+
+\begin{corollary}\label{cor:interval}
+For a cutoff as in Theorem~\ref{thm:main}, fix $q>0$, $v\ne0$,
+and $E>0$. No finite real pair $C,\delta$
+satisfies~\eqref{eq:asked} for all distinct
+$\epsilon_1,\epsilon_2\in(0,E]$, even for the single symmetric mask $\psi_v$.
+\end{corollary}
+\begin{proof}
+The support inequalities in~\eqref{eq:selected} are equivalent after
+interchanging $k,l$, since $9/64$ and $64/9$ are reciprocal; hence
+$\psi_v(k,l)=\psi_v(l,k)$. Let $M=\phi_E(q,v)$ and
+$H=\max\{(E/2)^\delta,E^\delta\}$, both finite.
+Since $\epsilon_J\downarrow0$, the gap $|E-\epsilon_J|$ lies in
+$[E/2,E]$ for large $J$. Thus
+\[
+ C|E-\epsilon_J|^\delta\le\max\{C,0\}H
+ \quad\text{for every real }C,\delta.
+\]
+Choose $J$ so large that
+$c(J-j_0+1)>M+\max\{C,0\}H$. Equations~\eqref{eq:isolates}
+and~\eqref{eq:dyadic} yield
+\[
+ |\Delta_E(q,v)-\Delta_{\epsilon_J}(q,v)|
+ \ge\phi_{\epsilon_J}(q,v)-M
+ >C|E-\epsilon_J|^\delta.
+\]
+Both scales use the same cutoff, time, output, and mask.
+\end{proof}
+
+\begin{corollary}\label{cor:regularity}
+Fix $v\ne0$. No interpolation $\Psi:\R^5\times\Z^5\to\R$
+of $\psi_v$, continuously differentiable in its first argument,
+has a finite constant $A$ such that
+\[
+ |\nabla_p\Psi(-s+\theta v,s)|\le \frac{A}{1+|s|}
+ \quad\text{for all }|s|>2|v|,\ 0\le\theta\le1.
+\]
+\end{corollary}
+\begin{proof}
+Take $s=(2N,2N,2N,2N,2N)$ for integers $N\ge\max\{1,|v|\}$.
+The block bounds in the proof of Theorem~\ref{thm:main}, with
+$a=b=(N,N,N,N,N)$, give $\psi_v(v-s,s)=1$;
+also $\psi_v(-s,s)=0$ because $v\ne0$.
+The mean value inequality along the segment would imply
+$1\le A|v|/(1+|s|)$ for arbitrarily large $N$, a contradiction.
+\end{proof}
+
+\section{A corrected estimate away from zero scale}\label{sec:correction}
+
+The obstruction concerns scales tending to zero. On a bounded time
+interval the following uniform estimate survives.
+
+\begin{proposition}\label{prop:correction}
+Let $\zeta\in C_c^\infty(\R^5;F)$, $\sigma>0$, and $0\le T<\infty$.
+There exists $L_{\zeta,\sigma,T}<\infty$ such that, for every mask
+satisfying~\eqref{eq:mask}, every $u\in\Z^5$, $0\le r\le T$,
+and $\epsilon_1,\epsilon_2\ge\sigma$,
+\[
+ |\Delta_{\epsilon_2}(r,u)-\Delta_{\epsilon_1}(r,u)|
+ \le L_{\zeta,\sigma,T}|\epsilon_2-\epsilon_1|.
+\]
+\end{proposition}
+\begin{proof}
+Choose $R>0$ with $\zeta(x)=0$ for $|x|>R$, and let
+$B_0=R/\sigma$, $S=\{a\in\Z^5:|a|\le B_0\}$.
+For every $\epsilon\ge\sigma$, only $a,b\in S$ occur in the
+reindexed sum. Put
+$M_0=\sup_x|\zeta(x)|$ and $M_1=\sup_x\|d\zeta_x\|$,
+where the derivative is real-linear and its norm is the operator norm.
+Both are finite by smooth compact support.
+For fixed $a,b\in S$, the function
+$w_{a,b}(\epsilon)=|\zeta(\epsilon a)|^2|\zeta(\epsilon b)|^2$
+satisfies
+\[
+ |w'_{a,b}(\epsilon)|
+ \le2M_0^3M_1(|a|+|b|)\le4M_0^3M_1B_0=:W_*.
+\]
+If the mask is nonzero,~\eqref{eq:mask} implies
+$|n-a-b|\le(64/9)|a+b|\le(128/9)B_0$.
+Every exponential in~\eqref{eq:integral} is at most one on its
+integration domain, so $I(q;L,A,B)\le q^3/3$.
+Therefore, for all $q\in[0,T]$ and all $n\in\Z^5$,
+\[
+ 0\le K_\psi(q,n,a+b,b)
+ \le\left(D\frac{128}{9}B_0\right)^2\frac{T^3}{3}=:K_*;
+\]
+if the mask vanishes this inequality is immediate.
+The mean value inequality, applied to each of the $|S|^2$ terms,
+gives a Lipschitz constant $|S|^2K_*W_*$ for
+$\phi_\epsilon(q,n)$, uniformly in $q,n,\psi$.
+The difference of the two outputs has constant
+$L_{\zeta,\sigma,T}=2|S|^2K_*W_*$, as required.
+This also includes $T=0$, when all terms vanish.
+\end{proof}
+
+\begin{corollary}\label{cor:time}
+For each cutoff in Theorem~\ref{thm:main}, there are two fixed positive
+scales $\epsilon_a<\epsilon_b$ and $d>0$ such that, with
+$\psi_e$ and $e=(1,0,0,0,0)$,
+\[
+ |\Delta_{\epsilon_b}(q,e)-\Delta_{\epsilon_a}(q,e)|\ge dq
+ \qquad(q\ge2).
+\]
+Thus a positive lower bound on the scales alone does not give a
+time-uniform replacement for~\eqref{eq:asked}.
+\end{corollary}
+\begin{proof}
+Choose $R>0$ with $\zeta(x)=0$ for $|x|>R$, and take
+$\epsilon_a=\rho/4$, $\epsilon_b=R+1$.
+At scale $\epsilon_b$ only $a=b=0$ can contribute; then the
+mask or the frequency prefactor vanishes, so $\phi_{\epsilon_b}(q,n)=0$.
+At scale $\epsilon_a$ retain the one term $a=0$, $b=2e$.
+Its output frequency is $k=-e$; the mask equals one, and its cutoff
+weight is $|\zeta(0)|^2|\zeta(2\epsilon_a e)|^2\ge1/4$.
+For $L=D^4$ and $B=16D^4$, direct integration of the two inner
+variables gives
+\[
+ I(q;L,0,B)=\int_0^q e^{-(L+B)(q-\alpha)}
+             \frac{\alpha(1-e^{-2B\alpha})}{2B}\,d\alpha.
+\]
+For $q\ge2$, restrict to $q-1\le\alpha\le q$. There
+$\alpha\ge q/2$, $\alpha\ge1$, and the integrand is at least
+$q e^{-(L+B)}(1-e^{-2B})/(4B)$.
+Multiplying by the prefactor $D^2$ and cutoff weight $1/4$ proves
+the claim with $d=D^2e^{-(L+B)}(1-e^{-2B})/(16B)>0$.
+All other terms are nonnegative, and~\eqref{eq:isolates} removes
+the zero-output value. These two scales lie in $[\epsilon_a,\infty)$;
+their separation is fixed while $dq$ is unbounded.
+\end{proof}
+
+\section{Coverage and formal statements}
+
+The source has one question, no linked mathematical source, and one
+comment asking for motivation rather than posing another problem.
+The consequences below that are not in that question are marked as such.
+
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.37\linewidth}>{\raggedright\arraybackslash}p{0.55\linewidth}@{}}
+\toprule
+Statement & Conclusion\\
+\midrule
+Posed estimate~\eqref{eq:asked} & Answered: no under the stated
+Euclidean conventions; corrected by Proposition~\ref{prop:correction}.\\
+Every fixed positive time and nonzero output & Not posed; logarithmic
+obstruction proved in Theorem~\ref{thm:main}.\\
+Symmetric masks; scales in $(0,E]$ & Not posed; obstruction proved in
+Corollary~\ref{cor:interval}.\\
+Positive lower scale, bounded time & Not posed; corrected Lipschitz
+estimate proved in Proposition~\ref{prop:correction}.\\
+Positive lower scale, unbounded time & Not posed; linear obstruction
+proved in Corollary~\ref{cor:time}.\\
+Sole motivation comment & Explanatory, not a mathematical assertion.\\
+Ghafari, Lemma H.0.1 & Prior proof cited: structured-mask output bound;
+not the source's cutoff-increment question.\\
+Frequency derivative control for $\psi_v$ & Not posed; obstruction
+proved in Corollary~\ref{cor:regularity}.\\
+Additional cancellation or partition identities for the mask & Not covered;
+such identities would specify a different class from~\eqref{eq:mask}.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{sloppypar}
+In the pinned Lean source~\cite{lean}, within namespace
+\texttt{D5.S3.Fourier.MO511715Source}, the declarations
+\texttt{cutoff\_finite\_support}, \texttt{time\_integral\_ge},
+and \texttt{kernel\_block\_lower} give the finite-support,
+time-subregion, and block-kernel statements. The latter two are at
+$q=1$, and the block statement uses output $e$ and mask $\psi_e$.
+The declaration \texttt{phi\_dyadic\_growth} gives~\eqref{eq:dyadic}
+at $q=1$, $v=e$, $j_0=0$ for both scalar fields.
+The declaration \texttt{result} proves the negation of
+\texttt{claim}, the conjunction of the real and complex universal
+smooth-cutoff estimates. Its proof uses a real smooth bump;
+the stronger fixed-cutoff, all-real-exponent failure is the intermediate
+private lemma \texttt{source\_estimate\_failure}, at time one,
+output $e$, with the larger scale fixed at two.
+The all-scale floor bound~\eqref{eq:loggrowth}, its extension to arbitrary
+positive times and nonzero outputs, Proposition~\ref{prop:correction},
+and Corollaries~\ref{cor:interval}, \ref{cor:regularity}, and~\ref{cor:time}
+have the written proofs above;
+their full statements are not the conclusions of those Lean declarations.
+The accompanying \texttt{verify.py} checks finite lattice instances and
+exact rational identities used in the block estimates.
+\end{sloppypar}
+
+\begin{thebibliography}{3}
+\raggedright
+\bibitem{mathex}
+mathex (MathOverflow user 138491),
+\emph{Bound of series}, MathOverflow question 511715,
+revision 2, 26 May 2026,
+\href{https://mathoverflow.net/revisions/511715/2}{revision text};
+\href{https://mathoverflow.net/questions/511715/bound-of-series}{question}.
+Source text licensed CC BY-SA 4.0.
+
+\bibitem{ghafari}
+Joe Ghafari, \emph{Paracontrolled approach to the stochastic Cahn--Hilliard
+equation}, Ph.D. thesis, University of Ottawa, 2026,
+\href{https://arxiv.org/abs/2609.02197v1}{arXiv:2609.02197v1},
+2 September 2026. Appendix H, pp.~93 and 108--111, Lemma H.0.1.
+
+\bibitem{lean}
+\emph{Five-dimensional cutoff series}, Lean source
+\leanfile, commit
+\texttt{1ad50310295853e27713693f182e8eac94296739}.
+\end{thebibliography}
+
+\smallskip
+\noindent\small This note is licensed under
+\href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons Attribution 4.0
+International (CC BY 4.0)}.
+\end{document}

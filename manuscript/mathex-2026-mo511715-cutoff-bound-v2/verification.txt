@@ -1,0 +1,9 @@
+Exact rational identities: decay budget 11/16; cutoff weight 1/16; kernel degree -10.
+Lattice corner-pair instances: 5121; N = 1, 2, 4, 8, 16, 32.
+Dyadic interval disjointness instances: 120; indices 0 through 15.
+Reindexing inverse and inclusive mask ratios: all listed instances satisfy the identities.
+Lipschitz bound constants: comparability factor 128/9 and time-volume factor 1/3.
+General-output corner-pair instances and mask symmetry: 24578.
+Positive-time subregion endpoint instances: 192; six rational times.
+Zero-mode time-region endpoints: eight instances; cutoff weight 1/4 and inner factor 1/(2B).
+Scope: finite integer/rational checks; all-parameter claims have written proofs in note.tex.
