@@ -19,10 +19,10 @@
   "generator_version": "0.1.0",
   "sha256": {
     "CHANGELOG.md": "29b5773b7b3ec62253a3b0757056c2aa1b54dd56c503081aaa8bd8f93098a43c",
-    "CITATION.cff": "11aad8eb91e92975f7b8152a3ede8b92a33d97c8d2178a9d333e74f9f1ef0cc3",
+    "CITATION.cff": "6e4d1566349dca53952d4636acfcfffa57272dee2240fc654e4101593d3bdb3a",
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
     "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
-    "README.md": "418201f3a8de4d61b11fe2dba0e201c96d70435d79eff77dbc85b464f01fd6d0",
+    "README.md": "41c276617d14ea8b117e1e23e25aba1a2f0f053b5d4c100b7703f25a479e628b",
     "formalization/nodes.json": "3daed79ae05bb813acef6640e0bf07cde841f325fee7a46fdcb0573008730808",
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/README.md": "42fab035061adac0be7f16c40f25b47ec7eadaa603613ddade306ac7eff77bb9",
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/SHA256SUMS": "9a91508a32dad7fc54a5c19737ca7d9aa834d5153b6b38b297fc77da9552fea1",
@@ -30,9 +30,9 @@
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/note.tex": "c7be35d53095832445a779240268350a00c0e5c03fb606f3dfabf39a8c8f5cd2",
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/verification.txt": "b7b102259cbeb6bf28eca39358415d5d59081a8af1fe957c7d3b09e49ed97131",
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/verify.py": "d8f1f56401fbb298edc1737da7cfc8ffc75d8bcacc6fa29bf30466d0d1fc2389",
-    "paper.json": "f5bb31df1aab30ea7e5607365164ef3826d2156c10b4dc16d3d3e9fa940cefae",
+    "paper.json": "cec497a449fd48a8cc2f35e179a0415c0134e921bf5fa1fcef2dafcb43412288",
     "paper.pdf": "f1cd52b832c5cb65b6cf53efafadabee3ada3320258e15e860c74b95f7e38968",
     "source.archive": "fd8e3673795e323b9c4ad07b08c49b820b376d3e6869dc189f270badc9a95a69"
   },
-  "snapshot_identity": "1b420d65acd6d41fcab70ae1fabe142d47082a32c2ebfddc73e38cf9ed579355"
+  "snapshot_identity": "edf5164a1cc75a9f41b56302f610b4bb1bbbefc8d18017aa37346a67108b18dc"
 }
