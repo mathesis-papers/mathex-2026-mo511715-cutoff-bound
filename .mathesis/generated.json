@@ -23,7 +23,7 @@
     "CONTRIBUTING.md": "fafd66e63160b2a88f433af56d2af2b0f7bf6ed2fd417d46b54446ce07c627ff",
     "LICENSES/CC-BY-4.0.txt": "58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650",
     "README.md": "41c276617d14ea8b117e1e23e25aba1a2f0f053b5d4c100b7703f25a479e628b",
-    "formalization/nodes.json": "3daed79ae05bb813acef6640e0bf07cde841f325fee7a46fdcb0573008730808",
+    "formalization/nodes.json": "8cb58f210fa677b226ac5c2a72186cbd90a504d235608c70ea3bbd1e544fd3c6",
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/README.md": "42fab035061adac0be7f16c40f25b47ec7eadaa603613ddade306ac7eff77bb9",
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/SHA256SUMS": "9a91508a32dad7fc54a5c19737ca7d9aa834d5153b6b38b297fc77da9552fea1",
     "manuscript/mathex-2026-mo511715-cutoff-bound-v2/metadata.json": "4fd31f287d4d6a7a06d58cbdec50f0e9043143b1768fd9bcf2ab928c18d462f7",
@@ -34,5 +34,5 @@
     "paper.pdf": "f1cd52b832c5cb65b6cf53efafadabee3ada3320258e15e860c74b95f7e38968",
     "source.archive": "fd8e3673795e323b9c4ad07b08c49b820b376d3e6869dc189f270badc9a95a69"
   },
-  "snapshot_identity": "edf5164a1cc75a9f41b56302f610b4bb1bbbefc8d18017aa37346a67108b18dc"
+  "snapshot_identity": "9e8a902dd98de09e0251271f7dabf5e80023f3b21707bf01dbc9ca3582ec9de5"
 }
